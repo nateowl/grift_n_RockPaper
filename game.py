@@ -1,7 +1,6 @@
 #imports random package
 from random import randint
 
-#creates a basket or choices to choose from
 choices=["rock", "paper", "scissors"]
 
 #Lives
@@ -13,6 +12,29 @@ computer=choices[randint(0,2)]
 
 #set up a game loop here so we dont have to keep restarting it
 player= False
+
+def winorlose(status):
+    print("Called win or lose", status, "\n")
+    print("You", status, "! Would you like to play again")
+    choice = input('Y / N? ')
+
+    if choice == "Y" or choice == "y":
+        global player_lives
+        global computer_lives
+        global player
+        global computer
+        #resets the game
+        player_lives = 5
+        computer_lives = 5
+        player = False
+        computer = choices[randint(0,2)]
+
+    elif choice == "N" or choice == "n":
+        print("You chose to quit.  Better luck next time")
+        exit()
+    else:
+        print("Make a valid choice Yes or No")
+        #choice = input('Y / N?')
 
 #game loop
 while player is False:
@@ -62,38 +84,40 @@ while player is False:
             computer_lives -= 1
 
     if player_lives == 0:
-        print("You Lost! Loser. Would you like to play again?")
-        choice = input('Y / N?')
-
-        if choice == "Y" or choice == "y":
-            player_lives = 5
-            computer_lives = 5
-            player = False
-            computer = choices[randint(0,2)]
-
-        elif choice == "N" or choice == "n":
-            print("You chose to quit.  Better luck next time")
-            exit()
-        else:
-            print("Make a valid choice Yes or No")
+        winorlose("lost")
+        # print("You Lost! Loser. Would you like to play again?")
+        # choice = input('Y / N?')
+        #
+        # if choice == "Y" or choice == "y":
+        #     player_lives = 5
+        #     computer_lives = 5
+        #     player = False
+        #     computer = choices[randint(0,2)]
+        #
+        # elif choice == "N" or choice == "n":
+        #     print("You chose to quit.  Better luck next time")
+        #     exit()
+        # else:
+        #     print("Make a valid choice Yes or No")
 
     elif computer_lives == 0:
-        print("You Won! Loser. Would you like to play again?")
-        choice = input('Y / N?')
-
-        if choice == "Y" or choice == "y":
-            #resets the game
-            player_lives = 5
-            computer_lives = 5
-            player = False
-            computer = choices[randint(0,2)]
-
-        elif choice == "N" or choice == "n":
-            print("You chose to quit.  Better luck next time")
-            exit()
-        else:
-            print("Make a valid choice Yes or No")
-            #choice = input('Y / N?')
+        winorlose("winner")
+        # print("You Won! Loser. Would you like to play again?")
+        # choice = input('Y / N?')
+        #
+        # if choice == "Y" or choice == "y":
+        #     #resets the game
+        #     player_lives = 5
+        #     computer_lives = 5
+        #     player = False
+        #     computer = choices[randint(0,2)]
+        #
+        # elif choice == "N" or choice == "n":
+        #     print("You chose to quit.  Better luck next time")
+        #     exit()
+        # else:
+        #     print("Make a valid choice Yes or No")
+        #     #choice = input('Y / N?')
 
     else:
         player = False
