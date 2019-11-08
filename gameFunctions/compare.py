@@ -1,38 +1,47 @@
 from gameFunctions import gameVars
 
-def gameFunction(status):
+def gameFunction(player):
     #always check a breaking condition first
-    if status == gameVars.computer:
+    if player == gameVars.computer:
     #we have a tie, no point in going any further
+        print(gameVars.line)
         print("Tie, no one wins! Try again")
-    elif status == "quit":
+    elif player == "quit":
     #you quit, lets player exit game
+        print(gameVars.line)
         print("You choose to quit, quitter.")
+        print(gameVars.line)
         exit()
 
     #Rock against (Paper or Scissors)
-    elif status == "rock":
+    elif player == "rock":
         if gameVars.computer == "paper":
-            print("You lose!", gameVars.computer, "covers", status, "\n")
+            print(gameVars.line)
+            print("You lose!", gameVars.computer, "covers", player)
             gameVars.player_lives -= 1
         else:
-            print("You won!", status, "smashes", gameVars.computer, "\n")
+            print(gameVars.line)
+            print("You won!", player, "smashes", gameVars.computer)
             gameVars.computer_lives -= 1
 
     #Paper against (Scissors or Rocks)
-    elif status == "paper":
+    elif player == "paper":
         if gameVars.computer == "scissors":
-            print("You lose!", gameVars.computer, "cuts", status, "\n")
+            print(gameVars.line)
+            print("You lose!", gameVars.computer, "cuts", player)
             gameVars.player_lives -= 1
         else:
-            print("You won!", status, "covers", gameVars.computer, "\n")
+            print(gameVars.line)
+            print("You won!", player, "covers", gameVars.computer)
             gameVars.computer_lives -= 1
 
     #Scissors against (Rock or paper)
-    elif status == "scissors":
+    elif player == "scissors":
         if gameVars.computer == "rock":
-            print("You lose!", gameVars.computer, "smashes", status, "\n")
+            print(gameVars.line)
+            print("You lose!", gameVars.computer, "smashes", player)
             gameVars.player_lives -= 1
         else:
-            print("You won!", status, "cuts", gameVars.computer, "\n")
+            print(gameVars.line)
+            print("You won!", player, "cuts", gameVars.computer)
             gameVars.computer_lives -= 1
