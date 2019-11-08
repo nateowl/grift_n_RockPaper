@@ -1,17 +1,17 @@
 #imports random package
 from random import randint
 
-choices=["rock", "paper", "scissors"]
+choices = ["rock", "paper", "scissors"]
 
 #Lives
-player_lives = 5
-computer_lives = 5
+player_lives = 1
+computer_lives = 1
 
 # let the computer ai make a choice
-computer=choices[randint(0,2)]
+computer = choices[randint(0,2)]
 
 #set up a game loop here so we dont have to keep restarting it
-player= False
+player = False
 
 def winorlose(status):
     print("Called win or lose", status, "\n")
@@ -24,8 +24,8 @@ def winorlose(status):
         global player
         global computer
         #resets the game
-        player_lives = 5
-        computer_lives = 5
+        player_lives = 1
+        computer_lives = 1
         player = False
         computer = choices[randint(0,2)]
 
