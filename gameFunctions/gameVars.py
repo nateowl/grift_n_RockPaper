@@ -15,3 +15,6 @@ computer = choices[randint(0,2)]
 
 #set up a game loop here so we dont have to keep restarting it
 player = False
+
+#Decoration Line
+line = "=================================================="

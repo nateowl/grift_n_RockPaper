@@ -5,9 +5,11 @@ from gameFunctions import gameVars
 
 #game win and loose run.
 def winorlose(status):
-    print("Called win or lose", status, "\n")
+    #print("Called win or lose", status, "\n")
+    print(gameVars.line)
     print("You", status, "! Would you like to play again")
-    choice = input('Y / N? ')
+    choice = input('Y / N? \n >')
+    print(gameVars.line)
 
 #yes choice at the end of the game
     if choice == "Y" or choice == "y":
@@ -19,10 +21,13 @@ def winorlose(status):
 
 #no choice at the end of the game
     elif choice == "N" or choice == "n":
+        print(gameVars.line)
         print("You chose to quit.  Better luck next time")
+        print(gameVars.line)
         exit()
     else:
-        print("Make a valid choice Yes or No")
+        print(gameVars.line)
+        print("Make a valid choice Y or N?")
         #recursion => calling a function from inside itself
         winorlose(status)
         #choice = input('Y / N?')
